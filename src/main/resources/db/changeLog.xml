@@ -9,7 +9,10 @@
 
     <changeSet id="initialize-schema" author="nderwin">
         <sql>
-            CREATE SCHEMA IF NOT EXISTS partay;
+            CREATE SCHEMA IF NOT EXISTS joined;
+            CREATE SCHEMA IF NOT EXISTS mapped;
+            CREATE SCHEMA IF NOT EXISTS multiple;
+            CREATE SCHEMA IF NOT EXISTS single;
         </sql>
     </changeSet>
 

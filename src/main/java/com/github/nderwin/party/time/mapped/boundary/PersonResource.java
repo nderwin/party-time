@@ -1,6 +1,7 @@
-package com.github.nderwin.party.time.boundary;
+package com.github.nderwin.party.time.mapped.boundary;
 
-import com.github.nderwin.party.time.entity.Organization;
+import com.github.nderwin.party.time.api.boundary.PersonRequest;
+import com.github.nderwin.party.time.mapped.entity.Person;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
@@ -15,23 +16,20 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 
 @Transactional(REQUIRES_NEW)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("organizations")
+@Path("mapped/people")
 @RequestScoped
-public class OrganizationResource {
-    
-    @GET
-    public List<Organization> list() {
-        return Organization.listAll();
-    }
+public class PersonResource {
 
+    @GET
+    public List<Person> list() {
+        return Person.listAll();
+    }
+    
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
-    public void create(final OrganizationRequest req) {
-        final Organization o = new Organization(req.legalIdentifier, req.name);
-        o.persist();
+    public void create(PersonRequest req) {
+        Person p = new Person(req.legalIdentifier(), (req.firstName() + " " + req.lastName()).trim());
+        p.persist();
     }
-    
-    public record OrganizationRequest(String legalIdentifier, String name) {
-        
-    }
+
 }

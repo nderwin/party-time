@@ -1,10 +1,10 @@
-package com.github.nderwin.party.time.entity;
+package com.github.nderwin.party.time.mapped.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Table(schema = "partay", name = "person")
-@Entity
+@Table(schema = "mapped", name = "person")
+@Entity(name = "MappedPerson")
 public class Person extends Party {
 
     protected Person() {

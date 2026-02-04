@@ -1,10 +1,10 @@
-package com.github.nderwin.party.time.entity;
+package com.github.nderwin.party.time.multiple.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-@Table(schema = "partay", name = "organization")
-@Entity
+@Table(schema = "multiple", name = "organization")
+@Entity(name = "TablePerClassOrganization")
 public class Organization extends Party {
 
     protected Organization() {
