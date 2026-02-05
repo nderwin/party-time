@@ -27,4 +27,10 @@ public class Person extends Party {
         Person findByName(String name);
     }
     
+    public interface StatelessBlockingRepo extends Party.StatelessBlockingRepo<Person> {
+        @Find
+        @Override
+        Person findByName(String name);
+    }
+
 }

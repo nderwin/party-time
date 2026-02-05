@@ -1,5 +1,6 @@
 package com.github.nderwin.party.time.mapped.entity;
 
+import io.quarkus.hibernate.panache.PanacheRepository;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.hibernate.annotations.processing.Find;
@@ -15,15 +16,9 @@ public class Person extends Party {
         super(identifier, name);
     }
     
-    public interface Repo extends Party.Repo<Person> {
+    public interface Repo extends PanacheRepository<Person> {
+        // Required because the generated metadata class won't have the import statement if this has no methods
         @Find
-        @Override
-        Person findByName(String name);
-    }
-    
-    public interface StatelessRepo extends Party.StatelessRepo<Person> {
-        @Find
-        @Override
         Person findByName(String name);
     }
     
