@@ -1,11 +1,9 @@
-package com.github.nderwin.party.time.entity;
+package com.github.nderwin.party.time.single.entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 import org.hibernate.annotations.processing.Find;
 
-@Table(schema = "partay", name = "organization")
-@Entity
+@Entity(name = "SingleTableOrganization")
 public class Organization extends Party {
 
     protected Organization() {
@@ -14,7 +12,7 @@ public class Organization extends Party {
     public Organization(final String identifier, final String name) {
         super(identifier, name);
     }
-
+    
     public interface Repo extends Party.Repo<Organization> {
         @Find
         @Override

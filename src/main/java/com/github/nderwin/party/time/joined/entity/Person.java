@@ -1,11 +1,11 @@
-package com.github.nderwin.party.time.entity;
+package com.github.nderwin.party.time.joined.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import org.hibernate.annotations.processing.Find;
 
-@Table(schema = "partay", name = "person")
-@Entity
+@Table(schema = "joined", name = "person")
+@Entity(name = "JoinedPerson")
 public class Person extends Party {
 
     protected Person() {

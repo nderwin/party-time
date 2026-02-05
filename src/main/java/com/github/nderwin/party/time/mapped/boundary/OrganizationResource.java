@@ -1,6 +1,7 @@
-package com.github.nderwin.party.time.boundary;
+package com.github.nderwin.party.time.mapped.boundary;
 
-import com.github.nderwin.party.time.entity.Organization;
+import com.github.nderwin.party.time.api.boundary.OrganizationRequest;
+import com.github.nderwin.party.time.mapped.entity.Organization;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -16,7 +17,7 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 
 @Transactional(REQUIRES_NEW)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("organizations")
+@Path("mapped/organizations")
 @RequestScoped
 public class OrganizationResource {
     
@@ -31,11 +32,8 @@ public class OrganizationResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
     public void create(final OrganizationRequest req) {
-        final Organization o = new Organization(req.legalIdentifier, req.name);
+        final Organization o = new Organization(req.legalIdentifier(), req.name());
         o.persist();
     }
     
-    public record OrganizationRequest(String legalIdentifier, String name) {
-        
-    }
 }
