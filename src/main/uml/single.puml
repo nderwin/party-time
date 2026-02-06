@@ -1,0 +1,8 @@
+@startuml
+
+object Party {
+    <#lightblue,#black>|= id |= dtype |= identifier |= name |
+    <#white>|  |  |  |  |
+}
+
+@enduml
