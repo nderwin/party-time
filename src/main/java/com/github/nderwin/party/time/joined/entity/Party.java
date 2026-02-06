@@ -1,13 +1,10 @@
 package com.github.nderwin.party.time.joined.entity;
 
 import io.quarkus.hibernate.panache.PanacheEntity;
-import io.quarkus.hibernate.panache.PanacheRepository;
-import io.quarkus.hibernate.panache.stateless.blocking.PanacheStatelessBlockingRepository;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.Table;
-import org.hibernate.annotations.processing.Find;
 
 import static jakarta.persistence.InheritanceType.JOINED;
 
@@ -47,19 +44,4 @@ public abstract class Party extends PanacheEntity {
         this.name = name;
     }
 
-    protected interface Repo<T extends Party> extends PanacheRepository<T> {
-        @Find
-        T findByName(String name);
-    }
-    
-    protected interface StatelessRepo<T extends Party> extends PanacheRepository<T> {
-        @Find
-        T findByName(String name);
-    }
-    
-    protected interface StatelessBlockingRepo<T extends Party> extends PanacheStatelessBlockingRepository<T> {
-        @Find
-        T findByName(String name);
-    }
-    
 }

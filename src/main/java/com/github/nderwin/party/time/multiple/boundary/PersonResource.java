@@ -2,8 +2,8 @@ package com.github.nderwin.party.time.multiple.boundary;
 
 import com.github.nderwin.party.time.api.boundary.PersonRequest;
 import com.github.nderwin.party.time.multiple.entity.Person;
+import com.github.nderwin.party.time.multiple.entity.Person_;
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -21,12 +21,9 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 @RequestScoped
 public class PersonResource {
 
-    @Inject
-    Person.Repo repo;
-    
     @GET
     public List<Person> list() {
-        return repo.listAll();
+        return Person_.managedBlocking().listAll();
     }
     
     @Consumes(MediaType.APPLICATION_JSON)
