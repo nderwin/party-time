@@ -2,8 +2,8 @@ package com.github.nderwin.party.time.joined.boundary;
 
 import com.github.nderwin.party.time.api.boundary.OrganizationRequest;
 import com.github.nderwin.party.time.joined.entity.Organization;
+import com.github.nderwin.party.time.joined.entity.Organization_;
 import jakarta.enterprise.context.RequestScoped;
-import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -21,12 +21,9 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 @RequestScoped
 public class OrganizationResource {
     
-    @Inject
-    Organization.Repo repo;
-    
     @GET
     public List<Organization> list() {
-        return repo.listAll();
+        return Organization_.repo().listAll();
     }
 
     @Consumes(MediaType.APPLICATION_JSON)
