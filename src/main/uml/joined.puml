@@ -1,0 +1,20 @@
+@startuml
+
+object Party {
+    <#lightblue,#black>|= id |= identifier |= name |
+    <#white>|  |  |  |
+}
+
+object Organization {
+    <#lightblue,#black>|= id |
+    <#white>|  |
+}
+Organization -up-> Party
+
+object Person {
+    <#lightblue,#black>|= id |
+    <#white>|  |
+}
+Person -up-> Party
+
+@enduml

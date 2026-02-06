@@ -1,0 +1,18 @@
+@startuml
+
+hide circle
+
+abstract class Party {
+    - identifier : String
+    - name : String
+}
+
+class Organization {
+}
+Organization -up-|> Party
+
+class Person {
+}
+Person -up-|> Party
+
+@enduml
