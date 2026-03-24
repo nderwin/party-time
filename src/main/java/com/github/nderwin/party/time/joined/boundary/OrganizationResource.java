@@ -23,7 +23,7 @@ public class OrganizationResource {
     
     @GET
     public List<Organization> list() {
-        return Organization_.repo().listAll();
+        return Organization_.managedBlocking().listAll();
     }
 
     @Consumes(MediaType.APPLICATION_JSON)

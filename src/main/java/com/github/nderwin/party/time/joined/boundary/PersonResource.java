@@ -23,7 +23,7 @@ public class PersonResource {
 
     @GET
     public List<Person> list() {
-        return Person_.repo().listAll();
+        return Person_.managedBlocking().listAll();
     }
     
     @Consumes(MediaType.APPLICATION_JSON)
