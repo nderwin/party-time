@@ -1,8 +1,7 @@
-package com.github.nderwin.party.time.single.boundary;
+package com.github.nderwin.party.time.norepo.boundary;
 
 import com.github.nderwin.party.time.api.boundary.PersonRequest;
-import com.github.nderwin.party.time.single.entity.Person;
-import com.github.nderwin.party.time.single.entity.Person_;
+import com.github.nderwin.party.time.norepo.entity.Person;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
@@ -17,13 +16,13 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 
 @Transactional(REQUIRES_NEW)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("single/people")
+@Path("norepo/people")
 @ApplicationScoped
 public class PersonResource {
-
+    
     @GET
     public List<Person> list() {
-        return Person_.repo().listAll();
+        return Person.listAll();
     }
     
     @Consumes(MediaType.APPLICATION_JSON)

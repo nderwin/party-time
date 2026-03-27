@@ -3,7 +3,7 @@ package com.github.nderwin.party.time.single.boundary;
 import com.github.nderwin.party.time.api.boundary.OrganizationRequest;
 import com.github.nderwin.party.time.single.entity.Organization;
 import com.github.nderwin.party.time.single.entity.Organization_;
-import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -18,7 +18,7 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 @Transactional(REQUIRES_NEW)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("single/organizations")
-@RequestScoped
+@ApplicationScoped
 public class OrganizationResource {
     
     @GET

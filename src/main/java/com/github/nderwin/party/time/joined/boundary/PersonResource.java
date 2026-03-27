@@ -3,7 +3,7 @@ package com.github.nderwin.party.time.joined.boundary;
 import com.github.nderwin.party.time.api.boundary.PersonRequest;
 import com.github.nderwin.party.time.joined.entity.Person;
 import com.github.nderwin.party.time.joined.entity.Person_;
-import jakarta.enterprise.context.RequestScoped;
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.GET;
@@ -18,7 +18,7 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 @Transactional(REQUIRES_NEW)
 @Produces(MediaType.APPLICATION_JSON)
 @Path("joined/people")
-@RequestScoped
+@ApplicationScoped
 public class PersonResource {
 
     @GET

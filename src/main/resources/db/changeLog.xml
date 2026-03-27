@@ -13,6 +13,7 @@
             CREATE SCHEMA IF NOT EXISTS mapped;
             CREATE SCHEMA IF NOT EXISTS multiple;
             CREATE SCHEMA IF NOT EXISTS single;
+            CREATE SCHEMA IF NOT EXISTS norepo;
         </sql>
     </changeSet>
 

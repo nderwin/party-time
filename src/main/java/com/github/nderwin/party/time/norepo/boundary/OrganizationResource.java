@@ -1,8 +1,7 @@
-package com.github.nderwin.party.time.joined.boundary;
+package com.github.nderwin.party.time.norepo.boundary;
 
 import com.github.nderwin.party.time.api.boundary.OrganizationRequest;
-import com.github.nderwin.party.time.joined.entity.Organization;
-import com.github.nderwin.party.time.joined.entity.Organization_;
+import com.github.nderwin.party.time.norepo.entity.Organization;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.Consumes;
@@ -17,13 +16,13 @@ import static jakarta.transaction.Transactional.TxType.REQUIRES_NEW;
 
 @Transactional(REQUIRES_NEW)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("joined/organizations")
+@Path("norepo/organizations")
 @ApplicationScoped
 public class OrganizationResource {
     
     @GET
     public List<Organization> list() {
-        return Organization_.managedBlocking().listAll();
+        return Organization.listAll();
     }
 
     @Consumes(MediaType.APPLICATION_JSON)
